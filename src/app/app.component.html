@@ -4,28 +4,26 @@
 />
 <div class="text-center">
   <div class="panel-default">
+    <div class="panel-header">CoreGPT</div>
     <div class="panel-body">
-      CoreGPT
-    </div>
-    <div class="panel-body">
-      <div class="col-sm-8">
-        <input
-          type="text"
-          [(ngModel)]="searchTxtVal"
-          class="form-control"
-          autocomplete="off"
-          placeholder="Enter your question"
-        />
+      <div class="col-sm-12 mt-5">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter your question</mat-label>
+          <input
+            matInput
+            placeholder="Ex. What is the meaning of life?"
+            [(ngModel)]="searchTxtVal"
+          />
+        </mat-form-field>
       </div>
-      <div class="col-sm-2" style="margin-left: -60px">
-        <button (click)="getResult()">Get Result</button>
+      <div class="col-sm-12 mt-5">
+        <button mat-raised-button (click)="getResult()">Get Result</button>
       </div>
-
-      <div class="col-sm-12 mt-5" *ngIf="showOutput">
-        {{ output }}
-      </div>
-      <div class="col-sm-12 mt-5" *ngIf="isLoading">
+      <div class="col-sm-12 mt-5 output" *ngIf="isLoading">
         <p style="color: red">Loading...</p>
+      </div>
+      <div class="col-sm-12 mt-5 output" *ngIf="showOutput">
+        {{ output }}
       </div>
     </div>
   </div>
